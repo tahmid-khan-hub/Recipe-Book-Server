@@ -27,6 +27,11 @@ async function run() {
     // collection
     const RecipeCollection = client.db("recipeBookDB").collection("recipes");
 
+
+    app.get('/recipes', async(req, res) =>{
+      const result = await RecipeCollection.find().toArray();
+      res.send(result);
+    })
     
     app.post('/recipes', async(req, res) =>{
       const newRecipe = req.body;
