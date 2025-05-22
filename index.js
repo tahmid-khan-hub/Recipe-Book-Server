@@ -53,6 +53,20 @@ async function run() {
       res.send(result);
     })
 
+    app.patch('/recipes/:id', async(req, res) =>{
+      const id = req.params.id;
+      const {likeCount} = req.body;
+      const filter = {_id: new ObjectId(id)};
+      const updatedDoc = {
+        $set: {
+          likeCount : likeCount
+        }
+      }
+
+      const result = await RecipeCollection.updateOne(filter, updatedDoc);
+      res.send(result);
+    })
+
     app.delete('/recipes/:id', async(req, res) =>{
       const id = req.params.id;
       const query = {_id: new ObjectId(id)};
