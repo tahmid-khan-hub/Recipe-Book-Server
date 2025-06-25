@@ -5,9 +5,10 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: 'https://amazing-crepe-4d717c.netlify.app'
-}));
+// app.use(cors({
+//   origin: 'https://amazing-crepe-4d717c.netlify.app'
+// }));
+app.use(cors())
 app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.zc7c13h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
@@ -27,7 +28,7 @@ async function run() {
     // await client.connect();
 
     // collection
-    const RecipeCollection = client.db("recipeBookDB").collection("recipes");
+    const RecipeCollection = client.db("recipeBookStorage").collection("recipes");
 
 
     app.get('/recipes', async(req, res) =>{
@@ -90,9 +91,9 @@ async function run() {
 run().catch(console.dir);
 
 app.get("/", (req, res) => {
-  res.send("Recipe Book App server is working");
+  res.send("Recipe Book server is working");
 });
 
 app.listen(port, () => {
-  console.log("Recipe Book App server is working");
+  console.log("Recipe Book server is working");
 });
