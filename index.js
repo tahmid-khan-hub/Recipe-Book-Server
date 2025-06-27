@@ -6,8 +6,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: 'https://heroic-cuchufli-8e577c.netlify.app'
-}));
+  origin: 'https://dashing-rugelach-2e8bab.netlify.app'
+}))
 app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.zc7c13h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
