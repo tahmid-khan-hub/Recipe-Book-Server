@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors({
-  origin: 'https://steady-sunflower-1de71b.netlify.app'
+  origin: 'https://heroic-cuchufli-8e577c.netlify.app'
 }));
 app.use(express.json());
 
